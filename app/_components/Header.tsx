@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import logo from "../../public/logo.png"
 import { Button } from '@/components/ui/button'
-import Navbar, { NavigationMenuDemo } from './Navbar'
+import Navbar from './Navbar'
 
 function Header() {
   return (
