@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
-
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
@@ -9,17 +8,36 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        /* DEFAULT (Yellow via primary color) */
+        default:
+          "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm",
+
         destructive:
-          "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-destructive text-white hover:bg-destructive/90",
+
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "border border-primary text-primary hover:bg-primary hover:text-primary-foreground",
+
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
+          "hover:bg-accent hover:text-accent-foreground",
+
+        link:
+          "text-primary underline-offset-4 hover:underline",
+
+        /* 🔥 CUSTOM VARIANTS */
+        yellowGlow:
+          "bg-yellow-400 text-black shadow-[0_0_20px_rgba(250,204,21,0.6)] hover:shadow-[0_0_30px_rgba(250,204,21,0.9)]",
+
+        game:
+          "bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-game shadow-lg hover:scale-105 active:scale-95",
+
+        soft:
+          "bg-yellow-100 text-yellow-900 hover:bg-yellow-200",
       },
+
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
@@ -29,6 +47,7 @@ const buttonVariants = cva(
         "icon-lg": "size-10",
       },
     },
+
     defaultVariants: {
       variant: "default",
       size: "default",
@@ -53,7 +72,7 @@ function Button({
       data-slot="button"
       data-variant={variant}
       data-size={size}
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size }), className)}
       {...props}
     />
   )

@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Header from "./_components/Header";
+import Hero from "./_components/Hero";
 
 export default function Home() {
-  return (<>
-
-   <div >
-   <h1  className="font-game "> Wellcome to codebox</h1>
-    
-   </div>
-   <Button>Subscribe</Button>  </>
+  return (
+    <div className="flex flex-col w-full">
+      <Header />
+      <Hero />
+    </div>
   );
 }
