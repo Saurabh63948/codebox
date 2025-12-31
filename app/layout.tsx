@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono,Pixelify_Sans,Jersey_10,Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
-
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,6 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+   <ClerkProvider>
     <html lang="en" suppressHydrationWarning className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable}  ${GameFont.variable} ${inter.variable}antialiased`} 
@@ -48,5 +56,6 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
