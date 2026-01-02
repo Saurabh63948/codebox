@@ -3,6 +3,8 @@ import WellcomeBanner from "./_components/WellcomeBanner";
 import EnrolledCources from "./_components/EnrolledCources";
 import ExploreMore from "./_components/ExploreMore";
 import InviteFriend from "./_components/InviteFriend";
+import UserStatus from "./_components/UserStatus";
+import UpgradeToPro from "./_components/UpgradeToPro";
 
 function Page() {
   return (
@@ -15,7 +17,8 @@ function Page() {
        <InviteFriend/>
         </div>
         <div>
-          Right
+       <UserStatus/>
+       <UpgradeToPro/>
         </div>
       </div>
     </div>
