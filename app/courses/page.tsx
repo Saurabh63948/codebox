@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CoursesList from "./_components/CoursesList";
+import CoursesList from "../(routes)/dashboard/_components/CoursesList";
 
 function Page() {
   return (

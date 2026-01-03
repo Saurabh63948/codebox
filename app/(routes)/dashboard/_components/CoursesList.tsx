@@ -3,6 +3,7 @@
 import axios from "axios";
 import { ChartNoAxesColumn } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 type Course={
@@ -12,13 +13,14 @@ type Course={
   level:string,
   desc:string,
   bannerImage:string,
-  tag:string
+  tags:string
 }
 
 
 function CoursesList() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading,setLoading] =useState(false);
+  const route=useRouter();
   const getAllCourses = async () => {
     setLoading(true)
     try {
@@ -40,6 +42,7 @@ function CoursesList() {
       {courses.map((course, index) => (
         <div
           key={index}
+            onClick={() => route.push(`/courses/${course?.tags}`)}
           className="border-4 rounded-xl p-4 hover:scale-105 transition hover:bg-zinc-800 cursor-pointer "
         >
           {/* <h3 className="font-game text-xl">{course.title}</h3> */}
