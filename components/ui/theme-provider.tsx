@@ -32,8 +32,14 @@ export function ThemeProvider({
     createNewUser();
   }, [isLoaded, user]);
 
-  return <NextThemesProvider {...props}>
-  <UserDetailContext.Provider value={{userDetail,setUserDetail}} >
-     <div className="flex flex-col w-full items-center">
-     <Header />{children}</div></UserDetailContext.Provider></NextThemesProvider>;
+  return (
+  <NextThemesProvider {...props}>
+    <UserDetailContext.Provider value={{ userDetail, setUserDetail }}>
+      <div className="flex flex-col w-full">
+        <Header />
+        {children}
+      </div>
+    </UserDetailContext.Provider>
+  </NextThemesProvider>
+);
 }
